@@ -18,7 +18,7 @@ export const SideBar = ({ open, onOpen, onClose }) => {
                 transition={{ easings: [1.2, 0.7, 0.5, 1] }}
             >
                 <div className='bg-primary-gray hover:bg-primary-blue w-min p-4 rounded-full m-4 cursor-pointer' onClick={onClose}>
-                    <IoIosArrowForward size={25} className=" bg-clip-text text-transparent bg-gradient-to-b from-white to-blue-500" />
+                    <IoIosArrowForward size={25} className=" bg-clip-text text-white" />
                 </div>
                 <div className='mx-auto'>
                     <div className='relative w-36 h-36 bg-primary-gray border-4 border-primary-gray rounded-full mx-auto overflow-hidden flex items-center justify-center'>
