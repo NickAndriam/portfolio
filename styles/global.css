@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant&family=Marck+Script&family=Rubik+Iso&family=Shantell+Sans:wght@300&family=Tilt+Prism&display=swap");
+
+.cool {
+  font-family: "Assistant", sans-serif;
+}
+.mark-script {
+  font-family: "Marck Script", cursive;
+}
+
+.prism {
+  font-family: "Tilt Prism", cursive;
+}
+.shantell {
+  font-family: "Shantell Sans", cursive;
+}
+.rubik {
+  font-family: "Rubik Iso", cursive;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  /* background-image: url("../public/assets/blended.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(10px); */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* .main {
+  display: grid;
+  grid-template-areas:
+    "body"
+    "taskBar";
+} */
+
+.body {
+  display: grid;
+  /* grid-area: "body"; */
+  height: 100vh;
+}
+
+.taskBar {
+  grid-area: "taskBar";
+  margin: auto;
+  place-items: center;
+  /* background-color: #202023; */
+}
