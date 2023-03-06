@@ -27,19 +27,17 @@ export default function Home() {
         <Image src={smallerBottom} alt="blended" layout="fill" objectFit="contain" />
       </div>
       <div>
-        <TextWithMovingBox text={"My name is"} text2={"Nick"} bg="bg-primary-gray" textColor="text-white" />
-        <TextWithMovingBox text={"I am a"} delay={1.1} bg="bg-primary-blue" textColor="text-primary-blue" />
+        <TextWithMovingBox text={"I am a"} delay={0.3} bg="bg-primary-blue" textColor="text-primary-blue" />
       </div>
       <m.div className="relative w-min h-min mx-auto"
-
-        transition={{ duration: 0.5 }}
+      // transition={{ duration: 0.5 }}
       >
 
         <div className="flex flex-col items-center">
           <m.div
             initial={{ x: -150, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3, easings: [0.2, 0.4, 0.6, 1], delay: 2.1 }}>
+            transition={{ duration: 0.3, easings: [0.2, 0.4, 0.6, 1], delay: 0.8 }}>
             <m.p className='bg-primary-blue font-extrabold lg:text-[100px] text-[40px]
             bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400 float-left -mt-8'>Full-Stack</m.p>
           </m.div>
@@ -47,17 +45,19 @@ export default function Home() {
           <m.div
             initial={{ x: 150, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3, easings: [0.2, 0.4, 0.6, 1], delay: 2.1 }}>
+            transition={{ duration: 0.3, easings: [0.2, 0.4, 0.6, 1], delay: 0.8 }}>
+
             <m.span className='lg:flex lg:text-[160px] text-[60px] float-right font-extrabold
               bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-500 lg:-mt-20 -mt-10 '>Developer</m.span>
           </m.div>
         </div>
 
+
         <m.div className="flex space-around items-center justify-center cursor-pointer mt-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.5, 1] }}
-          transition={{ delay: 2.6 }}>
-          <div className="px-5 py-2 bg-primary-blue hover:bg-primary-gray rounded-full flex items-center gap-x-2 justify-center text-white hover:scale-[1.05] transition-all"
+          transition={{ delay: 1.2 }}>
+          <div className="px-5 py-2 bg-gradient-to-t from-cyan-500 to-[#2A77F7] hover:from-purple-600 hover:to-blue-500 rounded-full flex items-center gap-x-2 justify-center text-white hover:scale-[1.05] transition-all"
             onClick={() => router.push('/about')}>
             <h2 className={`rubik text-white lg:text-[30px] text-[18px]`}>Get to Know Me</h2>
             <IoIosArrowForward size={25} />

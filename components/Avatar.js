@@ -8,9 +8,8 @@ import socials from '@/data/socials'
 import { TextWithMovingBox } from './animation/TextWithMovingBox'
 import { useRouter } from 'next/router'
 
-export const SideBar = ({ open, onOpen, onClose }) => {
+export const Avatar = ({ open, onOpen, onClose }) => {
     const router = useRouter()
-    console.log(router)
     return (
         <>
             <div className={`absolute lg:top-10 lg:right-10 top-5 right-8 cursor-pointer text-white
@@ -30,19 +29,22 @@ export const SideBar = ({ open, onOpen, onClose }) => {
                     <Image src={avatar} alt="Nick" layout='fill' objectFit='cover' />
                 </m.div>
             </div>
-            <m.aside className='absolute top-0 right-0 bg-primary w-[300px] h-full'
-                initial={{ x: '100%' }}
-                animate={{ x: open ? '0%' : '100%' }}
-                transition={{ easings: [1.2, 0.7, 0.5, 1] }}
+            <m.aside className='absolute top-[50%] translate-y-[-50%] left-[50%] -translate-x-[50%] bg-black/[30px] backdrop-blur-lg w-[100%] h-[100%]
+            flex justify-center items-center transition-all'
+                initial={{ zIndex: -1 }}
+                animate={{ zIndex: open ? 1 : -1 }}
+                onClick={onClose}
             >
-                <div className='bg-primary-gray hover:bg-primary-blue w-min p-4 rounded-full m-4 cursor-pointer' onClick={onClose}>
+                {/* <div className='bg-primary-gray hover:bg-primary-blue w-min p-4 rounded-full m-4 cursor-pointer' onClick={onClose}>
                     <IoIosArrowForward size={25} className=" bg-clip-text text-white" />
-                </div>
+                </div> */}
                 <div className='mx-auto'>
-                    <div className='relative w-36 h-36 bg-gradient-to-b from-cyan-500 to-blue-500 rounded-full mx-auto overflow-hidden flex items-center justify-center'>
+                    <m.div className='relative w-36 h-36 bg-gradient-to-b from-cyan-400 to-blue-800 rounded-full mx-auto overflow-hidden
+                shadow-lg border hover:border-2 border-blue-500 transition-border'
+                    >
                         <Image src={avatar} alt="Nick" layout='fill' objectFit='cover' />
-                    </div>
-                    <p className='prism text-white text-center text-2xl py-4'>Nick Andriam</p>
+                    </m.div>
+                    <p className='prism text-white text-center text-4xl py-4'>Nick Andriam</p>
                     <div className='flex items-center justify-center gap-x-2'>
                         {socials.map((item, index) => {
                             return (
@@ -54,11 +56,11 @@ export const SideBar = ({ open, onOpen, onClose }) => {
                             )
                         })}
                     </div>
-                    <div className='m-2 my-10 p-4  flex flex-col items-center justify-center'>
-                        <p className='mark-script text-transparent text-2xl opacity-90 text-center bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500'>
+                    <div className='m-2 my-5 p-4  flex flex-col items-center justify-center'>
+                        <p className='mark-script text-transparent text-3xl opacity-90 text-center bg-clip-text bg-gradient-to-r from-white to-gray-100'>
                             “The secret of getting ahead is getting started.”
                         </p>
-                        <p className='mark-script text-primary-gray text-2xl mt-2'>
+                        <p className='mark-script text-white/80 text-2xl mt-2'>
                             —Mark Twain—
                         </p>
                     </div>

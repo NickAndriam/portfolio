@@ -23,7 +23,7 @@ const OpenedTask = (
         <>
             <AnimatePresence mode='wait'>
                 {open &&
-                    <m.div className={`absolute bg-primary-gray backdrop-blur-sm flex flex-row overflow-hidden pt-10 shadow-lg z-40`}
+                    <m.div className={`absolute bg-primary-gray backdrop-blur-sm flex flex-row overflow-hidden pt-10 shadow-lg z-50`}
                         initial={{
                             opacity: 0.2,
                             top: pos?.y || '100%',
