@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
       <Head />
       <main layout="size" className={`main relative w-screen h-screen overflow-hidden bg-primary`}>
         <m.div
-          className={`body ${openSideBar ? 'blur-lg' : 'blur-none'}`}
+          className={`body `}
           // initial={{ x: 0 }}
           // animate={{ x: openSideBar ? -300 : 0, opacity: openSideBar ? 0.5 : 1 }}
           // exit={{ x: 0 }}

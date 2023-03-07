@@ -11,6 +11,9 @@ const SectionHead = () => {
             <meta name="description" content="DEv Nick" />
             <meta property="og:title" content="DEv Nick " />
             <meta property="og:description" content="DEv Nick" />
+            <meta name="apple-mobile-wep-app-capable" content="yes" />
+            <meta name="mobile-wep-app-capable" content="yes" />
+
         </Head>
     )
 }
