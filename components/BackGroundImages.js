@@ -7,7 +7,7 @@ import smallerBottom from '@/public/assets/svg/smaller-bottom.svg'
 import { motion as m } from 'framer-motion'
 
 const BackGroundImages = ({ delay = 0.8 }) => {
-
+    // just a test
     return (
         <m.div
             initial={{ opacity: 0 }}
