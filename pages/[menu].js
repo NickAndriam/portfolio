@@ -1,3 +1,4 @@
+import BackGroundImages from '@/components/BackGroundImages'
 import OpenedTask from '@/components/Tasks/OpenedTask'
 import tasks from '@/data/tasks'
 import { AnimatePresence } from 'framer-motion'
@@ -11,6 +12,7 @@ const Menu = () => {
     const _tasks = tasks.filter(task => task.slug === router.query.menu)[0]
     return (
         <AnimatePresence mode='wait'>
+            <BackGroundImages />
             <div className='bg-primary'>
                 <OpenedTask
                     open={openTask}

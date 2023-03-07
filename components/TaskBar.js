@@ -21,7 +21,7 @@ export const TaskBar = () => {
                     )}
                 </m.div>
             </m.div>
-            <m.div className='absolute bottom-5 w-full flex flex-col items-center justify-center cursor-pointer'
+            {/* <m.div className='absolute bottom-5 w-full flex flex-col items-center justify-center cursor-pointer'
                 onClick={() => setOpenTaskbar(true)}
                 onTap={() => setOpenTaskbar(true)}
                 onHoverEnd={() => setOpenTaskbar(false)}
@@ -34,7 +34,7 @@ export const TaskBar = () => {
                     animate={{ y: [5, 0, 3, 0, 5], transition: { repeat: Infinity, duration: 1.4, bounce: 5, type: 'spring' } }}
 
                 />
-            </m.div>
+            </m.div> */}
         </>
         // </div>
     )

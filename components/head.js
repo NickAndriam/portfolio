@@ -4,7 +4,6 @@ import React from 'react'
 
 const SectionHead = () => {
     const { query } = useRouter()
-    console.log(useRouter())
     return (
         <Head>
             <title>{query.menu || 'Dev Nick'}</title>

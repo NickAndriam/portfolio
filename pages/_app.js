@@ -9,18 +9,16 @@ import Head from '@/components/head'
 import { Avatar } from '@/components/Avatar'
 
 
+
 export default function App({ Component, pageProps }) {
   const [openSideBar, setOpenSidebar] = useState(false)
-  console.log(openSideBar)
   return (
     <>
       <Head />
       <main layout="size" className={`main relative w-screen h-screen overflow-hidden bg-primary`}>
         <m.div
           className={`body `}
-          // initial={{ x: 0 }}
-          // animate={{ x: openSideBar ? -300 : 0, opacity: openSideBar ? 0.5 : 1 }}
-          // exit={{ x: 0 }}
+          animate={{ opacity: openSideBar ? 0.8 : 1 }}
           transition={{ easings: [0.5, 0.7, 0.5, 1] }}
         >
           <AnimatePresence mode='wait' initial={true}>
@@ -42,3 +40,4 @@ export default function App({ Component, pageProps }) {
     </>
   )
 }
+

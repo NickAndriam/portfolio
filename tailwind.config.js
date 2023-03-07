@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        "primary": "#000000",
+        "primary": "#1A1F29",
+        // "primary": "#000000",
         "primary-gray": "#1F2430",
         "primary-blue": "#2A77F6"
       },
@@ -22,6 +23,9 @@ module.exports = {
       },
       fontFamily: {
         "prism": "prism"
+      },
+      boxShadow: {
+        "glass": "inset 0.5px 1px 1px 0.5px rgb(0 0 0 / 0.05);"
       }
     },
   },
