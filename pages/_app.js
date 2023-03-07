@@ -11,7 +11,8 @@ import { Avatar } from '@/components/Avatar'
 
 
 export default function App({ Component, pageProps }) {
-  const [openSideBar, setOpenSidebar] = useState(false)
+  const [openInfo, setOpenInfo] = useState(false)
+  const [openSideBar, setOpenSideBar] = useState(false)
 
   useEffect(() => {
     window.addEventListener("load", function () {
@@ -28,7 +29,7 @@ export default function App({ Component, pageProps }) {
       <main layout="size" className={`main relative w-screen h-screen overflow-hidden bg-primary`}>
         <m.div
           className={`body `}
-          animate={{ opacity: openSideBar ? 0.8 : 1 }}
+          animate={openSideBar ? { opacity: 0.8, x: -300 } : { opacity: 1, x: 0 }}
           transition={{ easings: [0.5, 0.7, 0.5, 1] }}
         >
           <AnimatePresence mode='wait' initial={true}>
@@ -36,15 +37,15 @@ export default function App({ Component, pageProps }) {
             <TaskBar />
           </AnimatePresence>
         </m.div>
-        {/* <SideBar
-          open={openSideBar}
-          onOpen={() => setOpenSidebar(!openSideBar)}
-          onClose={() => setOpenSidebar(false)}
-        /> */}
         <Avatar
+          open={openInfo}
+          onOpen={() => setOpenInfo(!openInfo)}
+          onClose={() => setOpenInfo(false)}
+        />
+        <SideBar
           open={openSideBar}
-          onOpen={() => setOpenSidebar(!openSideBar)}
-          onClose={() => setOpenSidebar(false)}
+          onOpen={() => setOpenSideBar(!openSideBar)}
+          onClose={() => setOpenSideBar(false)}
         />
       </main>
     </>

@@ -36,7 +36,7 @@ export default function Home() {
             transition={{ duration: 0.2, easings: [0.2, 0.4, 0.6, 1], delay: 0.8 }}>
 
             <m.span className='lg:flex lg:text-[160px] text-[60px] float-right font-extrabold
-              bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-500 lg:-mt-20 -mt-10 '>Developer</m.span>
+              bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-500 lg:-mt-20 -mt-8 '>Developer</m.span>
           </m.div>
         </div>
 

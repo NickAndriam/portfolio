@@ -7,24 +7,23 @@ import smallerBottom from '@/public/assets/svg/smaller-bottom.svg'
 import { motion as m } from 'framer-motion'
 
 const BackGroundImages = ({ delay = 0.8 }) => {
-    // just a test
     return (
         <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: delay }}
         >
-            <div className='absolute w-[100%] h-[100%] top-[-10%] left-[-50%] lg:flex md:flex hidden'>
-                <Image src={circles} alt="blended" layout="fill" objectFit="contain" />
+            <div className='absolute w-[100%] h-[100%] top-[-10%] left-[-40%] lg:flex md:flex hidden'>
+                <Image src={circles} layout="fill" alt="blended" />
             </div>
             <div className='absolute lg:w-[50%] w-[100%] h-[80%] -right-40 bottom-0 lg:flex md:flex hidden'>
-                <Image src={blended} alt="blended" layout="fill" />
+                <Image src={blended} alt="blended" layout='fill' />
             </div>
             <div className='absolute w-[100%] h-[100%] top-[-35%] left-[-20%] lg:hidden md:hidden'>
-                <Image src={smallerTop} alt="blended" layout="fill" objectFit="contain" />
+                <Image src={smallerTop} alt="blended" layout='fill' />
             </div>
             <div className='absolute w-[100%] h-[100%] bottom-[-30%] right-[-20%] lg:hidden md:hidden'>
-                <Image src={smallerBottom} alt="blended" layout="fill" objectFit="contain" />
+                <Image src={smallerBottom} alt="blended" layout='fill' />
             </div>
         </m.div>
     )

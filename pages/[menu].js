@@ -1,27 +1,29 @@
 import BackGroundImages from '@/components/BackGroundImages'
 import OpenedTask from '@/components/Tasks/OpenedTask'
 import tasks from '@/data/tasks'
-import { AnimatePresence } from 'framer-motion'
+import { motion as m } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
 const Menu = () => {
     const [openTask, setOpenTask] = useState(true)
     const router = useRouter()
-
     const _tasks = tasks.filter(task => task.slug === router.query.menu)[0]
     return (
-        <AnimatePresence mode='wait'>
+        // <AnimatePresence mode='wait'>
+        <>
             <BackGroundImages />
             <div className='bg-primary'>
                 <OpenedTask
                     open={openTask}
                     info={_tasks}
                     icon={_tasks?.icon}
+                    data={tasks}
                     onClose={() => router.push('/')}
                 />
             </div>
-        </AnimatePresence>
+        </>
+        // </AnimatePresence>
     )
 }
 

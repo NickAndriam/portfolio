@@ -13,21 +13,29 @@ export const Avatar = ({ open, onOpen, onClose }) => {
     const { asPath } = useRouter()
     return (
         <>
-            <m.div className={`absolute lg:top-10 lg:right-10 top-5 right-8 cursor-pointer text-white
+            <m.div className={`absolute lg:top-9 lg:right-24 md:top-4 md:right-20 top-16 right-7 cursor-pointer text-white
             flex lg:flex-row md:flex-row flex-col-reverse items-center justify-center gap-3`}
                 onClick={onOpen}
                 animate={asPath !== '/' ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }}
                 transition={{ easings: 0.5 }}
             >
-                <TextWithMovingBox text2="Nick" delay={1.5} textColor="text-gray-500" bg='bg-primary' />
-                <m.div className='relative lg:w-24 lg:h-24 md:w-24 md:h-24 w-20 h-20 bg-gradient-to-b from-cyan-400 to-blue-800 rounded-full mx-auto overflow-hidden
-                 border hover:border-2 hover:scale-105 scale-100 shadow-inner border-blue-500 transition-all'
-                    layout
+                <div className='lg:flex md:flex hidden'>
+                    <TextWithMovingBox
+                        text="Dev."
+                        text2="Nick"
+                        textColor="text-gray-500"
+                        textOneSize='lg:text-[18px] md:text-[18px] text-[12px]'
+                        textTwoSize='lg:text-[18px] md:text-[18px] text-[12px]'
+                        bg='bg-primary'
+                        delay={2} />
+                </div>
+                <m.div className='relative lg:w-12 lg:h-12 md:w-12 md:h-12 w-12 h-12 rounded-full mx-auto overflow-hidden
+                 border hover:border-2 hover:scale-105 scale-100 shadow-inner border-blue-500 transition-all '
                     initial={{ scale: 0 }}
-                    animate={{ scale: 1, transition: { delay: 2.2, duration: 0.5 } }}
+                    animate={{ scale: 1, transition: { delay: 2.2, duration: 0.3, ease: "circIn" } }}
                     whileTap={{ scale: 1 }}
                 >
-                    <Image src={avatar} alt="Nick" layout='fill' objectFit='cover' />
+                    <Image src={avatar} alt="Nick" width={1280} height={800} />
                 </m.div>
             </m.div>
             <m.aside className='absolute top-[50%] translate-y-[-50%] left-[50%] -translate-x-[50%] w-[100%] h-[100%]
@@ -44,7 +52,7 @@ export const Avatar = ({ open, onOpen, onClose }) => {
                 >
                     <m.div className='relative w-36 h-36 bg-gradient-to-b from-cyan-400 to-blue-800 rounded-full mx-auto overflow-hidden
                 shadow-lg border hover:border-2 border-blue-500 transition-border'>
-                        <Image src={avatar} alt="Nick" layout='fill' objectFit='cover' />
+                        <Image src={avatar} alt="Nick" width={1280} height={800} />
                     </m.div>
                     <m.p className=' shantell text-white text-center text-4xl py-4'>Nick Andriam</m.p>
                     <m.div className='flex items-center justify-center gap-x-2'>
