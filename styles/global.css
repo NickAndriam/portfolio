@@ -16,32 +16,26 @@
 .rubik {
   font-family: "Rubik Iso", cursive;
 }
-
 body {
+  position: "fixed";
   width: 100vw;
   height: 100vh;
-  /* background-image: url("../public/assets/blended.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  backdrop-filter: blur(10px); */
+  overflow: hidden;
 }
+.body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
-/* .main {
+/* .body {
   display: grid;
-  grid-template-areas:
-    "body"
-    "taskBar";
-} */
-
-.body {
-  display: grid;
-  /* grid-area: "body"; */
   height: 100vh;
-}
+} */
 
 .taskBar {
   grid-area: "taskBar";

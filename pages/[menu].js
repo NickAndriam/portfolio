@@ -10,9 +10,8 @@ const Menu = () => {
     const router = useRouter()
     const _tasks = tasks.filter(task => task.slug === router.query.menu)[0]
     return (
-        // <AnimatePresence mode='wait'>
         <>
-            <BackGroundImages />
+            {/* <BackGroundImages delay={0.3} /> */}
             <div className='bg-primary'>
                 <OpenedTask
                     open={openTask}
@@ -23,7 +22,6 @@ const Menu = () => {
                 />
             </div>
         </>
-        // </AnimatePresence>
     )
 }
 

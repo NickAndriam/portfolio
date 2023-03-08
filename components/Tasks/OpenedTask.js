@@ -1,42 +1,49 @@
 import React, { useState } from 'react'
-import { AnimatePresence, motion as m } from 'framer-motion'
+import { motion as m } from 'framer-motion'
 import { IoIosClose } from 'react-icons/io'
 import { BiExpandHorizontal } from 'react-icons/bi'
 import { CircleButton } from '@/components/Button/CircleButton'
 import useWindowDimensions from '@/hooks/useWindowDimension'
 import { useRouter } from 'next/router'
+import { useRecoilState } from 'recoil'
+import { elPositionState } from '@/Recoil/atoms'
 
 
 const OpenedTask = (
-    { open = false,
+    {
+        open = false,
         info,
         onClose,
-        position,
-        icon,
         data
     }
 ) => {
     const dim = useWindowDimensions()
     const [isExpanded, setExpanded] = useState(false)
+    const [elPosition, setElPosition] = useRecoilState(elPositionState)
     return (
         <>
-            {/* <AnimatePresence mode='wait'> */}
             {open &&
                 <m.div className={`absolute bg-black/5 flex flex-row overflow-hidden lg:pt-10 pt-20 z-50 shadow-glass ${open && 'shadow-white/20'} backdrop-blur-lg
-                top-[50%] transform -translate-y-[50%] left-1/2 -translate-x-1/2
                 `}
                     initial={{
-                        opacity: 0.5,
-                        height: 70,
-                        width: 70,
+                        opacity: 0,
+                        height: 20,
+                        width: 100,
                         borderRadius: 70,
+                        top: elPosition.y || 0,
+                        left: elPosition.x || 0,
+                        scale: 0
                     }}
                     animate={{
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
                         opacity: 1,
                         height: isExpanded ? '100%' : '96%' || dim.width < 830 ? '80%' : '96%',
                         width: dim.width < 830 ? '100%' : isExpanded ? '100%' : '80%',
                         borderRadius: 15,
-                        zIndex: 100,
+                        // zIndex: 100,
+                        scale: 1,
                         transition: {
                             duration: 0.2,
                             easings: [0.2, 0.3, 0.3, 0.2]
@@ -73,7 +80,7 @@ const OpenedTask = (
                                     {icon}
                                 </div>
                             </div> */}
-                        <m.ul className='lg:flex md:flex hidden flex-col px-2 gap-5 h-full mr-5'
+                        <m.ul className='lg:flex md:hidden hidden flex-col px-2 gap-5 h-full mr-5'
                             variants={leftContainer}
                             initial="hidden"
                             animate="show">
@@ -99,7 +106,6 @@ const OpenedTask = (
                     </div>
                 </m.div>
             }
-            {/* </AnimatePresence> */}
 
         </>
     )
@@ -118,6 +124,7 @@ const LeftList = ({ data }) => {
             layout
             transition={{ duration: 0.1 }}
             animate={{ width: isCurrentPath ? 310 : 300 }}
+
         >
             <div className='text-[50px]'>
                 {data.icon}

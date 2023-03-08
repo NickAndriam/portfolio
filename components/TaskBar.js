@@ -9,11 +9,10 @@ export const TaskBar = () => {
         <>
             <m.div className="absolute bottom-3 w-full z-[100]"
                 initial={{ y: '120px' }}
-                animate={{ y: openTaskbar ? '0%' : '120%' }}
+                animate={{ y: '0%' }}
                 transition={{ duration: 0.2 }}
             >
-                <m.div className={`mx-auto bottom-0 w-max bg- h-[80px] rounded-full p-2 flex items-center justify-center gap-2 bg-primary transition-all`}
-                    layout
+                <m.div className={`mx-auto bottom-0 w-max bg- h-[80px] rounded-full p-2 flex items-center justify-center gap-2 bg-primary-gray transition-all`}
                     onHoverStart={() => setOpenTaskbar(true)}
                     onHoverEnd={() => setOpenTaskbar(false)}
                 >
@@ -36,6 +35,5 @@ export const TaskBar = () => {
                 />
             </m.div> */}
         </>
-        // </div>
     )
 }

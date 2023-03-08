@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimension'
 
 export const Card = ({ title, subtitle, index }) => {

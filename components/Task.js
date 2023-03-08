@@ -15,7 +15,6 @@ export const Task = (props) => {
     const isCurrentMenu = menu === props.slug
 
     const onClickingIcon = (e) => {
-        // setOpen(!open)
         router.push(`/${props.slug}`)
         isCurrentMenu && router.push('/')
         setOpen(false)
@@ -35,7 +34,7 @@ export const Task = (props) => {
                     animate={{ marginBottom: hovered ? 3 : -4 }}
                 >{props.name}
                 </m.div>}
-                <m.div className={`top-0 w-[70px] h-[70px] bg-primary-gray hover:bg-primary-blue border-primary rounded-full flex items-center justify-center text-[30px] text-white shadow-lg `}
+                <m.div className={`top-0 w-[70px] h-[70px] bg-primary hover:bg-primary-blue border-primary rounded-full flex items-center justify-center text-[30px] text-white shadow-lg `}
                     layout
                     onClick={onClickingIcon}
                 >

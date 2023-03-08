@@ -45,8 +45,8 @@ const tasks = [
         taskBGColor: 'bg-blue-500'
     },
     {
-        name: "Cool Tweaks",
-        slug: "tweaks",
+        name: "Desktop",
+        slug: "desk/main",
         content: {
             title: `Check Out These Tweaks!`,
             text: [
