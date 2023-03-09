@@ -2,34 +2,43 @@ import { motion as m } from 'framer-motion'
 import { useState } from 'react';
 import { BsFillFolderFill, BsFileEarmarkImage } from 'react-icons/bs'
 import { HiDocumentText } from 'react-icons/hi'
-import { RiApps2Fill } from 'react-icons/ri'
+import { TbBrandAppleArcade } from 'react-icons/tb'
+import { GoFileSymlinkFile } from 'react-icons/go'
 import Folder from './folder';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import ImagePreviewer from '../image/ImagePreviewer';
 
 const File = ({ data }) => {
+    const router = useRouter()
     const [openFile, setOpenFile] = useState(false)
-
+    const [openImage, setOpenImage] = useState(false)
     function Icon() {
-        switch (data.fileType) {
+        switch (data?.fileType) {
+            case 'link':
+                return <GoFileSymlinkFile size={60} className="text-gray-400" onClick={() => router.push(`/${data?.slug}`)} />;
             case 'folder':
-                return <BsFillFolderFill size={60} className="text-blue-400" />;
+                return <BsFillFolderFill size={60} className="text-blue-400 " />;
             case 'image':
-                return <BsFileEarmarkImage size={60} className="text-gray-400" />;
+                return <BsFileEarmarkImage size={60} className="text-gray-400" onClick={() => setOpenImage(true)} />;
             case 'doc':
                 return <HiDocumentText size={70} className="text-gray-400" />;
             case 'app':
-                return <RiApps2Fill size={70} className="text-blue-500" />;
+                return <TbBrandAppleArcade size={70} className="text-blue-400" />;
             default:
                 return null
         }
     }
     function FileOpener() {
-        switch (data.fileType) {
+        switch (data?.fileType) {
             case 'folder':
                 return <Folder open={openFile}
                     onClose={() =>
                         setOpenFile(false)}
                     title={data.name}
                     data={data?.children} />;
+            case 'image':
+                return <ImagePreviewer image={data.image} open={openImage} onClose={() => { setOpenImage(false) }} />
             default:
                 return null
         }
@@ -44,7 +53,6 @@ const File = ({ data }) => {
                 whileTap={{ scale: 1.2 }}
                 whileHover={{ scale: 1.02 }}
                 dragMomentum={false}
-                onDoubleClick={() => setOpenFile(true)}
                 onClick={() => setOpenFile(true)}
             >
                 <Icon />

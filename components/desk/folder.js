@@ -20,7 +20,6 @@ const Folder = (
   const dim = useWindowDimensions()
   const [isExpanded, setExpanded] = useState(false)
   const [elPosition, setElPosition] = useRecoilState(elPositionState)
-  console.log(elPosition)
   return (
     <>
       {open &&

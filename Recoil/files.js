@@ -5,7 +5,8 @@ export const filesState = atom({
     default: [
         {
             name: 'About Me',
-            fileType: 'doc'
+            fileType: 'link',
+            slug: 'about'
         },
         {
             name: 'Apps',
@@ -24,6 +25,7 @@ export const filesState = atom({
         {
             name: 'Wallpaper',
             fileType: 'image',
+            image: '/assets/images/wallpaper.jpg'
         },
     ],
 });
