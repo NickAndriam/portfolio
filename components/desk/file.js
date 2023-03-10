@@ -8,17 +8,21 @@ import Folder from './folder';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ImagePreviewer from '../image/ImagePreviewer';
+import ImageIcon from '../icons/ImageIcon';
 
 const File = ({ data }) => {
     const router = useRouter()
     const [openFile, setOpenFile] = useState(false)
     const [openImage, setOpenImage] = useState(false)
+    console.log(router)
     function Icon() {
         switch (data?.fileType) {
             case 'link':
                 return <GoFileSymlinkFile size={60} className="text-gray-400" onClick={() => router.push(`/${data?.slug}`)} />;
             case 'folder':
-                return <BsFillFolderFill size={60} className="text-blue-400 " />;
+                return <BsFillFolderFill size={60} className="text-blue-400" onClick={() => router.push(`${router.asPath}/${data?.name}`)} />;
+            // case 'image':
+            //     return <ImageIcon className="text-gray-400" onClick={() => setOpenImage(true)} image={data.image} name={data.name} />;
             case 'image':
                 return <BsFileEarmarkImage size={60} className="text-gray-400" onClick={() => setOpenImage(true)} />;
             case 'doc':
