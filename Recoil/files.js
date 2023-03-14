@@ -2,8 +2,6 @@ import { atom } from "recoil";
 import { v4 as id } from 'uuid';
 
 
-
-
 export const filesState = atom({
     key: 'filesState',
     default: [
@@ -17,6 +15,7 @@ export const filesState = atom({
             name: 'Apps',
             fileType: 'folder',
             id: `${id()}`,
+            open: false,
             children: [
                 {
                     name: 'To Do',
@@ -35,20 +34,30 @@ export const filesState = atom({
             name: 'Images In 2020',
             fileType: 'folder',
             id: `${id()}`,
+            open: false,
             children: [
                 {
                     name: 'Mountain',
                     fileType: 'image',
                     image: '/assets/images/wallpaper.jpg',
-                    id: `${id()}`
+                    id: `${id()}`,
+                    alt: 'wallpaper'
                 },
                 {
                     name: 'Sky',
                     fileType: 'image',
                     image: '/assets/images/wallpaper.jpg',
-                    id: `${id()}`
+                    id: `${id()}`,
+                    alt: 'wallpaper'
                 },
             ]
+        },
+        {
+            name: 'album',
+            fileType: 'folder',
+            id: `${id()}`,
+            open: false,
+            children: []
         },
         {
             name: 'Wallpaper',

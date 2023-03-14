@@ -20,7 +20,7 @@ export const SideBar = () => {
                 onClick={() => setSideBarState(true)}>
                 <AiOutlineMenu className='text-white' size={40} />
             </div>
-            <m.aside className='absolute top-0 right-0 bg-primary w-[300px] h-full'
+            <m.aside className='absolute top-0 right-0 bg-primary w-[120px] h-full'
                 initial={{ x: '100%' }}
                 animate={{ x: _sideBarState ? '0%' : '100%' }}
                 transition={{ easings: [1.2, 0.7, 0.5, 1] }}
@@ -28,19 +28,19 @@ export const SideBar = () => {
                 <div className='bg-primary hover:bg-primary-blue w-min p-4 rounded-full m-4 cursor-pointer' onClick={() => setSideBarState(false)}>
                     <IoIosArrowForward size={25} className=" bg-clip-text text-white" />
                 </div>
-                <m.ul className='h-screen gap-4 gapx-4 flex flex-col items-center justify-start'
+                <m.ul className='h-screen gap-4 flex flex-col items-center justify-start p-2'
                     variants={leftContainer}>
                     {tasks.map((data, index) => {
                         const isCurrentPath = router.asPath === `/${data.slug}`
                         return (
-                            <m.li key={index} className={`h-[15%] grid grid-cols-[1fr_2fr] place-items-center 
+                            <m.li key={index} className={`flex flex-col items-center justify-center gap-y-2
                             text-white p-2 rounded-2xl shadow-2xl cursor-pointer hover:bg-primary-blue
+                            w-[100%]
                             ${isCurrentPath ? 'bg-primary-blue' : 'bg-primary'}
                             `}
                                 onClick={() => { router.push(`/${data.slug}`), setSideBarState(false) }}
-                                layout
                                 transition={{ duration: 0.1 }}
-                                animate={{ width: 280 }}
+                                animate={{ width: '100%' }}
                                 variants={leftItem}
                                 onMouseOver={(e) => setElPosition({ x: e.pageX, y: e.pageY })}
 
@@ -48,7 +48,7 @@ export const SideBar = () => {
                                 <div className='text-[50px]'>
                                     {data.icon}
                                 </div>
-                                <p className='w-max text-2xl font-bold'>
+                                <p className='w-max text-[12px] text-center'>
                                     {data.name}
                                 </p>
                             </m.li>

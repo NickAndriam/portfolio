@@ -4,6 +4,7 @@ import Head from '@/components/head'
 import { RecoilRoot } from 'recoil';
 import Main from '@/components/main/main'
 import { AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
 
 export default function App({ Component, pageProps }) {
   return (

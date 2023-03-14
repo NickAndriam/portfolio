@@ -30,8 +30,8 @@ const OpenedTask = (
                         height: 20,
                         width: 100,
                         borderRadius: 70,
-                        top: elPosition.y || 0,
-                        left: elPosition.x || 0,
+                        top: elPosition.y || '0%',
+                        left: elPosition.x || '0%',
                         scale: 0
                     }}
                     animate={{

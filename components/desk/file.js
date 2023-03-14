@@ -1,68 +1,25 @@
 import { motion as m } from 'framer-motion'
-import { useState } from 'react';
-import { BsFillFolderFill, BsFileEarmarkImage } from 'react-icons/bs'
-import { HiDocumentText } from 'react-icons/hi'
-import { TbBrandAppleArcade } from 'react-icons/tb'
-import { GoFileSymlinkFile } from 'react-icons/go'
-import Folder from './folder';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import ImagePreviewer from '../image/ImagePreviewer';
-import ImageIcon from '../icons/ImageIcon';
+import IconSwitcher from '../icons/IconSwitcher';
 
 const File = ({ data }) => {
-    const router = useRouter()
-    const [openFile, setOpenFile] = useState(false)
-    const [openImage, setOpenImage] = useState(false)
-    console.log(router)
-    function Icon() {
-        switch (data?.fileType) {
-            case 'link':
-                return <GoFileSymlinkFile size={60} className="text-gray-400" onClick={() => router.push(`/${data?.slug}`)} />;
-            case 'folder':
-                return <BsFillFolderFill size={60} className="text-blue-400" onClick={() => router.push(`${router.asPath}/${data?.name}`)} />;
-            // case 'image':
-            //     return <ImageIcon className="text-gray-400" onClick={() => setOpenImage(true)} image={data.image} name={data.name} />;
-            case 'image':
-                return <BsFileEarmarkImage size={60} className="text-gray-400" onClick={() => setOpenImage(true)} />;
-            case 'doc':
-                return <HiDocumentText size={70} className="text-gray-400" />;
-            case 'app':
-                return <TbBrandAppleArcade size={70} className="text-blue-400" />;
-            default:
-                return null
-        }
-    }
-    function FileOpener() {
-        switch (data?.fileType) {
-            case 'folder':
-                return <Folder open={openFile}
-                    onClose={() =>
-                        setOpenFile(false)}
-                    title={data.name}
-                    data={data?.children} />;
-            case 'image':
-                return <ImagePreviewer image={data.image} open={openImage} onClose={() => { setOpenImage(false) }} />
-            default:
-                return null
-        }
-    }
     return (
         <>
-            <m.div className='text-white flex flex-col items-center justify-center gap-2 w-min cursor-pointer'
+            <m.div className='file text-white flex flex-col items-center justify-center gap-2 cursor-pointer text-center max-30'
+                id={data.id}
                 drag
                 dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
                 dragElastic={0.2}
-                whileDrag={{ scale: 1.2, zIndex: 2000 }}
-                whileTap={{ scale: 1.2 }}
-                whileHover={{ scale: 1.02 }}
+                whileDrag={{ scale: 1.05, zIndex: 2000 }}
+                whileTap={{ scale: 1.02 }}
+                whileHover={{ scale: 1.05 }}
                 dragMomentum={false}
-                onClick={() => setOpenFile(true)}
             >
-                <Icon />
-                <p className='text-[12px]'>{data.name}</p>
+                <IconSwitcher data={data} />
+                <p className='text-[12px] px-1 max-w-[65px]'
+                    contentEditable={false}
+                    suppressContentEditableWarning
+                >{data?.name}</p>
             </m.div>
-            <FileOpener />
         </>
     )
 }
