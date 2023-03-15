@@ -1,24 +1,18 @@
-import { foldersState } from '@/Recoil/atoms'
-import { filesState } from '@/Recoil/files'
-import React, { useEffect, useState } from 'react'
-import { BsFillFolderFill, BsFolderCheck, BsFolder2Open } from 'react-icons/bs'
+import { elPositionState, foldersState } from '@/Recoil/atoms'
+import React from 'react'
+import { BsFillFolderFill, BsFolder2Open } from 'react-icons/bs'
 import { useRecoilState } from 'recoil'
 
 const FolderIcon = ({ data }) => {
     const [folders, setFolders] = useRecoilState(foldersState)
-    const [files, setFiles] = useRecoilState(filesState)
-    const [currentlyOpened, setCurrentlyOpened] = useState(data.open || false)
+    const [elPosition, setElPosition] = useRecoilState(elPositionState)
 
-    // useEffect(() => {
-    //     for (let i = 0; i < folders.length; i++) {
-    //         folders[i]?.id == data.id && folders[i].open === true ?
-    //             setCurrentlyOpened(true) : setCurrentlyOpened(false)
-    //     }
-    // }, [folders])
+    const onOpeningFolder = (e) => {
 
-    const onOpeningFolder = () => {
-        //if the id of the folder is active then set 'currentlyOpen' to true
-        // the folder to push to main folder list
+        // set starting position of folder
+        setElPosition({ x: e.pageX, y: e.pageY })
+
+        // the modified folder to push to main folder list
         let tweakedFolder = { ...data, open: true, zIndex: folders.length + 1 }
 
         // if folder already exists then dont push otherwise do! 
@@ -32,25 +26,28 @@ const FolderIcon = ({ data }) => {
                 return newFolders
             })
         else return setFolders([...folders, tweakedFolder])
-
     }
-
-    console.log(folders)
 
     return (
         <>
             {folders[folders?.findIndex(e => e.id === data.id)]?.open ?
-                <BsFolder2Open
-                    size={62}
-                    className={`text-blue-400`}
-                    onClick={onOpeningFolder}
-                />
+                <div className='file'
+                    id={data?.id}
+                    onClick={onOpeningFolder}>
+                    <BsFolder2Open
+                        size={60}
+                        className={`text-blue-400 pointer-events-none`}
+                    />
+                </div>
                 :
-                <BsFillFolderFill
-                    size={60}
-                    className={`text-blue-400`}
-                    onClick={onOpeningFolder}
-                />
+                <div className='file'
+                    id={data?.id}
+                    onClick={onOpeningFolder}>
+                    <BsFillFolderFill
+                        size={60}
+                        className={`text-blue-400 pointer-events-none`}
+                    />
+                </div>
             }
         </>
     )

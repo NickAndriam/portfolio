@@ -1,9 +1,5 @@
 export const fileContext = [
     {
-        name: 'Open',
-        fn: 'open',
-    },
-    {
         name: 'Copy',
         fn: 'copy'
     },

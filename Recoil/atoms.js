@@ -49,3 +49,11 @@ export const foldersState = atom({
     default: []
 })
 
+export const popUpState = atom({
+    key: 'popUpState',
+    default: {
+        open: false,
+        component: null
+    }
+})
+

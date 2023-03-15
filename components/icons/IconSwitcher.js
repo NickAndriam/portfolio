@@ -4,6 +4,7 @@ import { HiDocumentText } from 'react-icons/hi'
 import LinkIcon from './LinkIcon'
 import FolderIcon from './FolderIcon'
 import ImageIcon from './ImageIcon'
+import AppIcon from './AppIcon'
 
 const IconSwitcher = ({ data }) => {
     switch (data?.fileType) {
@@ -16,7 +17,7 @@ const IconSwitcher = ({ data }) => {
         case 'doc':
             return <HiDocumentText size={70} className={`text-gray-400 `} />;
         case 'app':
-            return <SiSetapp size={70} className={`text-blue-400 `} />;
+            return <AppIcon />;
         default:
             return null
     }

@@ -7,7 +7,7 @@ import useWindowDimensions from '@/hooks/useWindowDimension'
 import FileLister from './fileLister'
 import { useRouter } from 'next/router'
 import { useRecoilState } from 'recoil'
-import { foldersState } from '@/Recoil/atoms'
+import { elPositionState, foldersState } from '@/Recoil/atoms'
 import { screenSize } from '@/utils/screenSizes'
 
 
@@ -15,6 +15,7 @@ const Folder = ({ data, index }) => {
   const dim = useWindowDimensions()
   const [isExpanded, setExpanded] = useState(false)
   const [folders, setFolders] = useRecoilState(foldersState)
+  const [elPosition, setElPosition] = useRecoilState(elPositionState)
   const [position, setPosition] = useState({
     top: 0,
     left: 0
@@ -23,7 +24,6 @@ const Folder = ({ data, index }) => {
 
   useEffect(() => {
     if (dim.width <= screenSize.tablet) setPosition({ x: 40 + index * 10, y: 100 + index * 20 })
-    // if (dim.width <= screenSize.tablet) setPosition({ x: 50 + index * 20, y: 50 + index * 10 })
     if (dim.width >= screenSize.tablet) setPosition({ x: 200 + index * 30, y: 100 + index * 50 })
   }, [dim, index])
 
@@ -32,9 +32,11 @@ const Folder = ({ data, index }) => {
 
   const folderVariant = {
     hidden: {
+      top: elPosition.y,
+      left: elPosition.x,
       opacity: 0,
-      height: 20,
-      width: 20,
+      height: "10%",
+      width: "10%",
       borderRadius: 70,
     },
     show: {
@@ -75,7 +77,8 @@ const Folder = ({ data, index }) => {
 
   return (
     <>
-      <m.div className={`absolute bg-white/5 flex flex-row overflow-hidden lg:pt-10 pt-20 shadow-glass shadow-white/20 backdrop-blur-lg
+      <m.div className={`absolute bg-black/5 flex flex-row overflow-hidden lg:pt-10 pt-20 shadow-xl shadow-black/20 backdrop-blur-xl
+      border-[1px] border-gray-700
         `}
         id={data.id}
         variants={folderVariant}
