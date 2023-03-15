@@ -9,7 +9,7 @@ import { AddingFolder } from './ContextAction'
 
 const ContextDropdown = () => {
     const [ddState, setDDState] = useRecoilState(contextState)
-    const [folders, setFolders] = useRecoilState(foldersState)
+    const [folder, setFolders] = useRecoilState(foldersState)
     const [popUp, setPopUp] = useRecoilState(popUpState)
     const [currentSubsets, setCurrentSubsets] = useState([])
     const [contextIndex, setContextIndex] = useState(0)
